@@ -329,6 +329,150 @@ Esta regla va a aplicar a pantallas de tamaño 800 a 1024px.
     section {
         padding: 25px 0 15px 0;
     } 
-}  
+}
 ```
+
+#### Agregamos CSS en la media query para nuestra seccion feature
+
+```
+.feature {
+        width: 100%;
+        text-align: left;
+        margin: 0 0 10px 0;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .feature img {
+        width:15%;
+        min-width:60px;
+        margin-right:20px;
+    }
+```
+
+#### Agregamos mas codigo en la media query
+
+```
+.quote {
+        padding: 30px 0;
+    }
+    blockquote p {
+        font-size: 18px;
+    }
+    blockquote cite {
+        font-size: 14px;
+    }
+```
+
+Y agregamos para el footer
+
+```
+footer {
+        padding: 30px 0 10px 0;
+    }
+    footer li {
+        display: block;
+        margin: 5px 0;
+    }
+```
+
+### Unidades CSS
+
+CSS te permite definir tamaños relativos para los `font-sizes` con la unidad `em`.
+Por ejemplo, si nuestro `body `tiene un `font-size` de `16px`, si uso `1.5em`, sera igual a `24px (16*1.5)`
+
+```
+body {
+    font-size: 16px;
+}
+p {
+    font-size: 1.5em;
+}
+```
+
+Otra unidad es `rem`, que quiere decir **Root Em**, quiere decir que solo se fija en el `font-size` del elemento root, que es `<html>`. Hace que el uso de `em` sea mas facil
+
+```
+html {
+    font-size: 16px;
+}
+```
+
+```
+h1 {
+        font-size: 2rem;
+        margin: 0 0 8px 0;
+    }
+    h2 {
+        font-size: 1.125rem;
+    }
+```
+
+#### Creamos un submenu
+
+Agregamos lo siguiente al menu del HTML
+
+```
+<a class="btn">Download Now</a>
+        <div class="submenu">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+        </div>
+```
+
+Y los estilos al submenu
+
+```
+.submenu {
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align:center;
+    position: absolute;
+    background-color: #549DA0;
+    min-width: 160px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.submenu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.submenu a:hover {
+    background-color: #468486;
+}
+```
+
+* En CSS colocamos el menu en el centro de la pantalla.
+
+Tambien agregamos lo siguiente a la media query
+
+```
+.submenu {
+        width: 100%;
+        position: relative;
+    }
+```
+
+#### Agregando animacion
+
+Agregamos el siguiente tag en nuestro `<head> `
+
+```
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+```
+
+Para agregar `JQuery` a HTML. Creamos el archivo `script.js` y ponemos el siguiente codigo
+
+```
+$(function() {
+    $(".btn").click(function() {
+        $(".submenu").slideToggle(500);
+    });
+});
+```
+
+y le agregamos un `display: none;` a nuestro CSS en `.submenu` asi lo ocultamos por defecto
 
